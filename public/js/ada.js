@@ -1,0 +1,1 @@
+alert('Big thanks untuk Erge yang membantu saya mengatasi huru hara web ini //emoji sungkem//');
