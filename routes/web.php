@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,10 @@ Route::get('/about', function () {
 Route::get('/coba', function () {
     return view('ini');
 });
+
+Route::get('/boom', [PostController::class, 'boomesport']);
+
+Route::get('/prx', [PostController::class, 'prxesport']);
+Route::get('/fnatic', [PostController::class, 'fnaticesport']);
+Route::get('/fpx', [PostController::class, 'fpxesport']);
+Route::get('/', [PostController::class, 'beranda']);
