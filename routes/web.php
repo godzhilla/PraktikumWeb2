@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\BukuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,5 @@ Route::get('/prx', [PostController::class, 'prxesport']);
 Route::get('/fnatic', [PostController::class, 'fnaticesport']);
 Route::get('/fpx', [PostController::class, 'fpxesport']);
 Route::get('/', [PostController::class, 'beranda']);
+
+Route::get('/buku',[BukuController::class, 'index']);
