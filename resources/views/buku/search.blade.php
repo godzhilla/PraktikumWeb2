@@ -1,19 +1,8 @@
 @extends('themes.app')
 @section('content')
-
-    @if (Session::has('pesan'))
-        <div class="alert alert-success">{{Session::get('pesan')}}</div> {{--ga muncul apa apa--}}
-    @endif
-
-    <h1>Daftar Buku Tersedia</h1>
-    <h3>Bulaksumur, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281</h3>
-
-
-    <form action="{{route('buku.search')}}" method="get">@csrf
-        <input type="text" name="kata" class="form-control" placeholder="Cari ..." style="width: 30%";
-        display: inline; margin-top: 10px; margin-bottom: 10px; float: right;>
-    </form>
-
+    @if (count($data_buku) > 0)
+    <div class="alert alert-seccess">Ditemukan <strong>{{count($data_buku)}}</strong> data dengan kata: <strong>{{$cari}}</strong></div>
+    
     <table class="table table-striped">
         <thead></thead>
             <tr>
@@ -49,10 +38,14 @@
             @endforeach
         </tbody>
     </table>
-    <div>{{ $data_buku->links() }}</div>
-    <p>Jumlah Data: {{ $jumlahData }}</p>
-    <p>Total Harga Buku: {{ "Rp ".number_format($totalHarga, 2, ', ','.')}}</p>
 
-    <button><a href="{{route('buku.create')}}"> Tambah Buku </a></button>
+    <a href="/buku" class="btn btn-warning">Kembali</a>
 
+    @else
+        <div class="alert alert-warning"><h4>Data {{$cari}} tidak ditemukan</h4>
+        <a href="/buku" class="btn btn-warning">Kembali</a>
+        </div>
+        
+    @endif
+    
 @endsection

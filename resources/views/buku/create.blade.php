@@ -12,6 +12,15 @@
 <body>
     <div class="container">
         <h2>Tambah Buku</h2>
+
+        @if (count($errors) > 0)
+            <ul class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul> 
+        @endif
+
         <form action="{{route('buku.store')}}" method="POST">
             @csrf
             <div class="form-group row">
@@ -38,7 +47,7 @@
             <div class="form-group row">
                 <label for="tgl_terbit" class="col-sm-2 col-form-label">Tgl. Terbit :</label>
                 <div class="col-sm-10">
-                    <input type="date" name="tgl_terbit" id="tgl_terbit" class="form-control">
+                    <input type="text" name="tgl_terbit" id="tgl_terbit" class="date form-control" placeholder="yyyy/mm/dd">
                 </div>
             </div>
 

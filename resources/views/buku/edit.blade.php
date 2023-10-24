@@ -28,7 +28,7 @@
         </div class="form-group row">
         <div>
             <label for="tgl_terbit" class="col-sm-2 col-form-label">Tgl. Terbit :</label>
-            <input type="date" name="tgl_terbit" id="tgl_terbit" class="form-control" value="{{$buku->tgl_terbit}}">
+            <input type="text" name="tgl_terbit" id="tgl_terbit" class="date form-control" placeholder="yyyy/mm/dd">
         </div>
         <div><button type="submit" class="simpan">Simpan</button></div>
         <a href="/buku"> Batal</a>
